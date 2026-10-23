@@ -7,3 +7,9 @@
   from = "/sitemap"
   to = "/sitemap.xml"
   status = 301
+
+# Old Framer page addresses: send them to the closest new page so old links and ads keep working.
+[[redirects]]
+  from = "/fast-cash"
+  to = "/cash-today/"
+  status = 301
