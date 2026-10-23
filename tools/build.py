@@ -19,6 +19,10 @@ PAGES = [
      "Get that old motorcycle or four-wheeler out of your yard. Send one photo, get a cash offer, and we haul it away. Keystone Heights, FL area."),
     ("SkipTheHassle.dc.html", "skip-the-hassle/index.html", "/skip-the-hassle/", "offer-skip-the-hassle",
      "Skip the Marketplace hassle. One fair cash offer for your motorcycle, dirt bike or ATV and a pickup on your schedule in North Central Florida."),
+    ("Wrecked.dc.html", "sell-wrecked-motorcycle/index.html", "/sell-wrecked-motorcycle/", "offer-wrecked",
+     "Sell a wrecked, crashed or salvage-title motorcycle, ATV or UTV for cash. We buy for parts, pay cash at pickup and haul it away. Keystone Heights and North Central Florida."),
+    ("NonRunning.dc.html", "sell-non-running-motorcycle/index.html", "/sell-non-running-motorcycle/", "offer-non-running",
+     "Won't start, seized or sitting for years? We buy non-running motorcycles, dirt bikes, ATVs and UTVs as-is for cash, with pickup usually within 48 hours. Keystone Heights, FL."),
     ("Faq.dc.html", "faq/index.html", "/faq/", None,
      "Straight answers about selling a motorcycle, dirt bike or ATV for cash in North Central Florida: titles, paperwork, pickup, payment and what we buy."),
 ]
@@ -29,6 +33,8 @@ LINKS = {
     'href="GetItGone.dc.html"': 'href="/get-it-gone/"',
     'href="SkipTheHassle.dc.html"': 'href="/skip-the-hassle/"',
     'href="Faq.dc.html"': 'href="/faq/"',
+    'href="Wrecked.dc.html"': 'href="/sell-wrecked-motorcycle/"',
+    'href="NonRunning.dc.html"': 'href="/sell-non-running-motorcycle/"',
 }
 
 IMAGES = {
@@ -167,7 +173,8 @@ def build():
         body = re.sub(r"<img (?!src=\"/images/raptor)", "<img loading=\"lazy\" decoding=\"async\" ", body)
         if form:
             label = {"/": "home", "/cash-today/": "cash today", "/get-it-gone/": "get it gone",
-                     "/skip-the-hassle/": "skip the hassle"}[path]
+                     "/skip-the-hassle/": "skip the hassle",
+                     "/sell-wrecked-motorcycle/": "wrecked bikes", "/sell-non-running-motorcycle/": "non-running bikes"}[path]
             body = wire_forms(body, form, label)
         jsonld = ""
         if path == "/":
