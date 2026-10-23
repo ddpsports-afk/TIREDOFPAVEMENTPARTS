@@ -117,7 +117,7 @@ BUSINESS = {
     "@type": "LocalBusiness",
     "@id": DOMAIN + "/#business",
     "name": "Tired of Pavement Parts",
-    "description": "Local cash buyer of used, wrecked and non-running motorcycles, dirt bikes and ATVs. We part them out and sell the parts.",
+    "description": "Local cash buyer of used, wrecked and non-running motorcycles, dirt bikes, ATVs, side-by-sides and UTVs. We part them out and sell the parts.",
     "url": DOMAIN + "/",
     "telephone": "+1-772-713-1669",
     "email": "ddpsports@gmail.com",
