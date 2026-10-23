@@ -13,3 +13,13 @@
   from = "/fast-cash"
   to = "/cash-today/"
   status = 301
+
+# Basic security headers for every page. (A strict Content-Security-Policy is left out on
+# purpose: it would need constant upkeep for Google Fonts and Netlify forms.)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
