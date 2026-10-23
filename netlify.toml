@@ -1,3 +1,9 @@
 # The built website lives in /site. Netlify serves that folder as-is (no build step).
 [build]
   publish = "site"
+
+# Send people (and Google) who type /sitemap to the real sitemap file.
+[[redirects]]
+  from = "/sitemap"
+  to = "/sitemap.xml"
+  status = 301
