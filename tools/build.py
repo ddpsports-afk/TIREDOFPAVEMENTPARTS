@@ -191,6 +191,38 @@ PRIVACY_BODY = ("""
 </div>""")
 
 
+LLMS_TXT = f"""# Tired of Pavement Parts
+
+> Local cash buyer of used, wrecked, salvage and non-running motorcycles, dirt bikes, ATVs, side-by-sides and UTVs, based in Keystone Heights, Florida. We buy machines as-is for their parts, pay cash at pickup and haul them away. Sellers start by texting a photo to 772-713-1669.
+
+## Key facts
+
+- Business: Tired of Pavement Parts, Keystone Heights, Florida, USA
+- Contact: text or call 772-713-1669, email ddpsports@gmail.com
+- What we buy: motorcycles, sportbikes, dirt bikes, dual-sports, ATVs, side-by-sides and UTVs from major brands (Honda, Yamaha, Kawasaki, Suzuki, KTM, Husqvarna, Harley-Davidson, Polaris, Can-Am, Arctic Cat, Triumph, Ducati, BMW, Kymco)
+- Condition: running or not, wrecked, crashed, salvage title, seized, missing parts, or sitting for years
+- Pickup area: within 30 miles of Keystone Heights as standard, up to 50 miles for the right machine, farther for multi-bike deals. Covers Clay, Bradford, Putnam, Alachua and Union counties (Keystone Heights, Starke, Middleburg, Green Cove Springs, Interlachen, Palatka, Melrose, Hawthorne, Gainesville, Lake Butler)
+- Pickup timing: usually within 48 hours of the seller accepting the offer
+- Payment: cash at pickup. No separate pickup fee; the cost is built into the offer
+- Paperwork: VIN checked on every machine and a signed bill of sale for every purchase. Lost titles handled case by case. We do not buy stolen machines
+- Example purchases: two wrecked Suzuki GSX-Rs for $2,100 each and a stripped Yamaha R6 for $700 (picked up in Sanford, FL)
+
+## Pages
+
+- [Home]({DOMAIN}/): how to sell a motorcycle or ATV without listing it, process, what we buy, pickup area, offer form
+- [Sell a wrecked or salvage motorcycle]({DOMAIN}/sell-wrecked-motorcycle/): why wrecks still have value, how we price them, Florida salvage and title paperwork
+- [Sell a non-running motorcycle]({DOMAIN}/sell-non-running-motorcycle/): why not to fix it first, non-runners we buy, what to send for an offer
+- [FAQ]({DOMAIN}/faq/): titles, paperwork, pickup, payment and what we buy
+
+## Optional
+
+- [Cash this week]({DOMAIN}/cash-today/): short offer page
+- [Get it out of your yard]({DOMAIN}/get-it-gone/): short offer page
+- [Skip the Marketplace hassle]({DOMAIN}/skip-the-hassle/): short offer page
+- [Privacy policy]({DOMAIN}/privacy/)
+"""
+
+
 def faq_ld(body):
     qa = re.findall(r"<h3[^>]*>(.*?)</h3><p[^>]*>(.*?)</p>", body, re.S)
     strip = lambda s: html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
@@ -294,6 +326,7 @@ def build():
     os.makedirs(f"{OUT}/privacy")
     open(f"{OUT}/privacy/index.html", "w").write(privacy)
 
+    open(f"{OUT}/llms.txt", "w").write(LLMS_TXT)
     open(f"{OUT}/favicon.svg", "w").write(FAVICON)
     open(f"{OUT}/robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
     urls = "".join(f"  <url><loc>{DOMAIN}{p[2]}</loc><lastmod>2026-10-23</lastmod></url>\n" for p in PAGES)
